@@ -1,0 +1,5 @@
+=begin navibar
+
+=object button: script=show_menu, style=btn_menu
+
+=end navibar

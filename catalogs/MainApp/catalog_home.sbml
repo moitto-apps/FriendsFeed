@@ -1,0 +1,12 @@
+=begin catalog
+
+=object image: filename=background.jpg, style=img_background
+=object blank: style=blank_dim
+
+=object showcase: id=showcase.groups, name=groups, \
+        has-header=yes, has-footer=yes, \
+        selectable=yes, action-when-selected=page, \
+        sortable=yes, sortkey=rowid, sortorder=descending, \
+        style=showcase_groups
+
+=end catalog

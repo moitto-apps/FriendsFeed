@@ -1,0 +1,8 @@
+{
+	"id":"io.moitto.FriendsFeed",
+	"language":"ko",
+	"version":"1.0",
+	"title":"프렌즈 피드",
+	"description":"친구들의 최신 글을 한번에 모아서 보자!",
+    "owner":"moitto"
+}

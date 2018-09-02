@@ -1,0 +1,10 @@
+import themes.sbss
+
+#point: font-family=$SERIF_LIGHT, font-size=2.5, text-color=$THEME_COLOR_103
+#owner: font-family=$SANSSERIF_BOLD, font-size=1.05
+
+/header/title: display=block, position=abs, gravity=top, y=1sbh+36dp, \
+        padding="20dp 60dp", pack=yes, background-color=$BLACK_COLOR_DIM, \
+        font-family=$SANSSERIF_BOLD, font-size=2.2, \
+        text-color=$WHITE_COLOR, text-align=left
+/header/title/owner: margin-top=20dp, font-family=$SANSSERIF_MEDIUM, font-size=0.9

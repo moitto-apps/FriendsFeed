@@ -1,0 +1,10 @@
+import themes.sbss
+
+#btn_add: width=44dp, height=44dp, \
+        label-font-family=$SANSSERIF_BOLD, label-font-size=2.4, \
+        label-color=$BLACK_COLOR, content-padding-top=3dp, \
+        content-background-color=$THEME_COLOR_03, content-border-radius=44dp/2
+
+/footer: margin-top=30dp, margin-bottom=1eb+50dp
+/footer/guide: margin-top=12dp, padding="0 40dp", font-family=$SANSSERIF_BOLD, font-size=1.0, \
+        text-color=$WHITE_COLOR, text-align=center

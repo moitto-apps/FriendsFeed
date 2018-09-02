@@ -1,0 +1,5 @@
+=begin toolbar
+
+=object button: script=done, label="그룹 등록", style=btn_done
+
+=end toolbar

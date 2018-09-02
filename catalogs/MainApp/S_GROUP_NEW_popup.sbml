@@ -1,0 +1,39 @@
+=begin popup
+
+=object showcase: id=showcase.members, alternate-name=members, data-script=feed_members, \
+                sortable=yes, sortkey=rowid, sortorder=descending, \
+                has-header=yes, has-toolbar=yes, \
+                shrinks-on-keyboard=yes, bounces=yes, \
+                style=showcase_members
+
+
+=object section: section=group.title, style=section_group.title
+=object section: section=member.bar, style=section_member.bar
+
+=begin group.title: id=group.title
+=object image: style=img_group.icon
+=object textfield: id=group.title, placeholder="그룹 이름 지정", \
+            style=textfield_group.title
+=object blank: style=blank_group.line.top
+=object blank: style=blank_group.line
+=object blank: style=blank_group.line.bottom
+=end group.title
+
+=begin member.bar: id=member.bar, form=member
+=object blank: style=blank_member.bar
+=object textfield: id=member, placeholder="스팀 계정", \
+            keyboard-type=alphabet, next-control=member.add, auto-capitalization-type=none, \
+            valid-format="[a-z0-9\\-]*", prevents-invalid-text=yes, \
+            invalid-when-empty=yes, message-when-empty="추가할 계정을 입력하세요.", \
+            style=textfield_member
+=object button: id=member.add, script=add_member, form=member, label="추가", style=btn_member.add
+=end member.bar
+
+=object section: section=navibar, style=section_navibar
+=begin navibar: id=navibar
+=object label: text="새 그룹", style=label_title
+=object button: action=popup-close, style=btn_close
+=object blank: style=blank_line
+=end navibar
+
+=end popup

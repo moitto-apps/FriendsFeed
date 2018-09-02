@@ -1,0 +1,14 @@
+import themes.sbss
+
+#img_background: width=1pw, height=1ph, content-gravity=bottom, scale-mode=center, \
+        position=abs, gravity=center
+#blank_dim: color=$BLACK_COLOR_DIM, width=1pw, height=1ph, position=abs, gravity=center
+
+#showcase_groups: width=1pw, height=1ph, position=abs, gravity=center, \
+        cell-spacing=15dp, header-height=1sbh+200dp
+
+if $SCREEN_SIZE > 7
+    #showcase_groups: column-count=2, cell-size="0.5pw-15dp, 100dp", content-margin="0 (1pw-300dp)/2"
+else
+    #showcase_groups: column-count=1, cell-size="0.9pw, 100dp", content-margin="0 0.1pw/2"
+end

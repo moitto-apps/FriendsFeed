@@ -1,0 +1,23 @@
+=begin cell
+
+=begin content
+=begin title
+${title}
+=end title
+
+=begin members
+=begin multiple
+=(object section: section=userpic, style=section_userpic)= =(object label: text="${first-member} 외 ${members-count-1}명", style=label_members)=
+=end multiple
+=begin single
+=(object section: section=userpic, style=section_userpic)= =(object label: text="${first-member}", style=label_members)=
+=end single
+=end members
+=end content
+
+=begin userpic: id=userpic
+=object blank: style=blank_userpic.mask
+=object image: image-url="${userpic-url}", reuse-id="${userpic-url}", style=img_userpic
+=end userpic
+
+=end cell

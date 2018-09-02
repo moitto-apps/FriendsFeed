@@ -1,0 +1,9 @@
+=begin footer
+
+=object button: script=add_group, label="+", style=btn_add
+
+=begin guide
+친구 목록을 등록해주세요.
+=end guide
+
+=end footer

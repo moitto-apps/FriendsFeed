@@ -1,0 +1,64 @@
+import themes.sbss
+
+/popup: scrolls-on-keyboard=no, page-background-color=$THEME_COLOR_02
+
+-- 내비바 --
+
+#section_navibar: width=1pw, height="1sbh+44dp", content-background-color=$THEME_COLOR_00
+#btn_close: image="~/subview_btn_close.png", width=44dp, height=44dp, \
+            position=abs, gravity=left-bottom
+#label_title: width="1pw-44dp*2", height=44dp, position=abs, gravity=bottom, \
+            font-family=$SANSSERIF_MEDIUM, text-color=$THEME_COLOR_100, text-align=center, \
+            line-break-mode=tail-truncation
+#blank_line: width=1pw, height=1dp, content-background-color=$THEME_COLOR_01, position=abs, gravity=bottom
+/popup/navibar: display=none
+
+if $SCREEN_WIDTH > "5"
+    #label_title: font-size=1.4
+else
+    #label_title: font-size=1.3
+end
+
+-- 멤버 목록 --
+
+#showcase_members: width=1pw, height="1ph-(1sbh+44dp+1eb)", \
+            column-count=1, cell-size="1pw, 50dp", cell-spacing=5dp, \
+            position=abs, gravity=top, y="1sbh+44dp", \
+            toolbar-height=70dp, header-spacing=70dp+54dp, footer-spacing=70dp, \
+            shrinks-on-keyboard=yes
+
+-- 그룹 이름 --
+
+#section_group.title: width=1pw, height=70dp, position=abs, gravity=top, y="1sbh+44dp", \
+            owner=showcase.members, follows-scroll=yes, min-y=-70dp, \
+            content-background-color=$THEME_COLOR_02
+
+#img_group.icon: filename=icon_group.png, width=30dp, height=30dp, position=abs, gravity=left, x=16dp
+#textfield_group.title: width="1pw-60dp", height=24dp, position=abs, gravity=left, x=60dp, y=2dp, \
+            font-family=$SANSSERIF_MEDIUM, font-size=1.2, text-color=$THEME_COLOR_100
+
+#blank_group.line: color=$THEME_COLOR_00, width=1pw, height=8dp, position=abs, gravity=bottom
+#blank_group.line.top: color=$THEME_COLOR_01, width=1pw, height=1dp, position=abs, gravity=bottom, y=-8dp
+#blank_group.line.bottom: color=$THEME_COLOR_01, width=1pw, height=1dp, position=abs, gravity=bottom
+
+-- 멤버 바 --
+
+#section_member.bar: width=1pw, height=54dp, position=abs, gravity=top, y="1sbh+44dp+70dp", \
+            owner=showcase.members, follows-scroll=yes, min-y=1sbh+44dp, \
+            content-background-color=$THEME_COLOR_02
+
+#blank_member.bar: color=$THEME_COLOR_01, width=1pw-60dp, height=36dp, \
+            position=abs, gravity=left, x=6dp, \
+            content-border-radius=8dp
+
+#textfield_member: width=1pw-100dp, height=36dp, \
+            position=abs, gravity=left, x=20dp, \
+            font-family=$SANSSERIF_MEDIUM, font-size=1.1
+
+#btn_member.add: width=54dp, height=44dp, position=abs, gravity=right, \
+            label-font-family=$SANSSERIF_MEDIUM, label-font-size=1.1, \
+            label-color=$THEME_COLOR_100, \
+            resign-responder-when-action=no
+
+/popup/group.title: display=none
+/popup/member.bar: display=none

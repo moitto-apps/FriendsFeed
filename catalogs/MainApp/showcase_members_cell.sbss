@@ -1,0 +1,16 @@
+import themes.sbss
+
+#blank_userpic.mask: color=$THEME_COLOR_01, width=40dp, height=40dp, \
+            position=abs, gravity=left, x=10dp, content-border-radius=40dp/2
+#img_userpic: width=38dp, height=38dp, position=abs, gravity=left, x=11dp, \
+            scale-mode=fill, content-border-radius=38dp/2, default-color=$THEME_COLOR_01
+#label_user: font-family=$SANSSERIF_BOLD, text-color=$THEME_COLOR_100, \
+            text-align=left, font-size=1.2, \
+            position=abs, gravity=left, x=60dp
+
+#btn_remove: image=btn_remove.png, width=32dp, height=32dp, position=abs, gravity=right, x=-5dp
+
+#blank_line: width=1pw-50dp, height=1dp, color=$THEME_COLOR_01, \
+            position=abs, gravity=bottom-left, x=50dp
+
+/cell: skips-drawing=yes

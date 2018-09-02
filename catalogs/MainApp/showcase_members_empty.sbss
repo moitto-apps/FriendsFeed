@@ -1,0 +1,5 @@
+import themes.sbss
+
+#label_message: display=block, position=abs, gravity=top, y=140dp, \
+        font-family=$SANSSERIF_MEDIUM, font-size=1.0, \
+        text-color=$THEME_COLOR_101, text-align=center

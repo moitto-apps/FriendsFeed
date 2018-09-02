@@ -1,0 +1,23 @@
+import themes.sbss
+
+#section_userpic: width=28dp, height=28dp
+
+#blank_userpic.mask: color=$THEME_COLOR_02, width=28dp, height=28dp, position=abs, gravity=center, \
+            content-border-radius=28dp/2
+#img_userpic: width=26dp, height=26dp, scale-mode=fill, \
+            position=abs, gravity=center, content-border-radius=26dp/2
+
+#label_members: height=28dp, margin-left=2dp, \
+            font-family=$SANSSERIF_MEDIUM, font-size=1.0, text-color=$THEME_COLOR_101
+
+/cell: page-background-color=$WHITE_COLOR_DEEPEST_DIM
+/cell/content: display=block, position=abs, gravity=center, text-align=left, padding="0 20dp"
+/cell/content/title: font-family=$SANSSERIF_MEDIUM, font-size=1.3, text-color=$BLACK_COLOR
+/cell/content/members: margin-top=6dp
+/cell/userpic: display=none
+
+if "${members-count-1}" == 0
+    /cell/content/members/multiple: display=none
+else
+    /cell/content/members/single: display=none
+end

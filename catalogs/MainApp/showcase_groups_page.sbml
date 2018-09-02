@@ -1,0 +1,8 @@
+=begin page
+
+=object showcase: id=showcase.blog, alternate-name=blog, data-script=feed_blog, \
+            loads-more=yes, more-count=15, preload-count=15, keep-count=15, \
+            selectable=yes, script-when-selected=open_discussion, \
+            style=showcase_blog
+
+=end page
