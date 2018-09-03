@@ -1,5 +1,6 @@
 =begin empty
 
 =object label: text="불러오는 중입니다.", style=label_loading
+=object label: text="검색 결과가 없습니다.", style=label_nomore
 
 =end empty

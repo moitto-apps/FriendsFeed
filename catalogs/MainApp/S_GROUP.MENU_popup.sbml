@@ -1,7 +1,7 @@
 =begin popup
 
 =begin actions
-=object button: script=remove, label="그룹 삭제하기", style=btn_menu
+=object button: script=remove, label="그룹 삭제하기", style=btn_menu, style=red
 =object blank: style=blank_line
 
 =object button: action=popup-close, label="취소", style=btn_close

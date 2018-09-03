@@ -109,7 +109,11 @@ function __get_discussions_in_pool(pool, length, discussions, handler) {
         if (!discussion) {
             __fill_discussion_pool(pool, length, function(response) {
                 if (response) {
-                    __get_discussions_in_pool(pool, length, discussions, handler);
+                    if (response.length > 0) {
+                        __get_discussions_in_pool(pool, length, discussions, handler);                        
+                    } else {
+                        handler(discussions);
+                    }
                 } else {
                     handler(discussions);
                 }
@@ -175,8 +179,8 @@ function __fill_discussion_pool(pool, length, handler) {
             var start_permlink = (pool[member].length == 1) ? pool[member][0]["permlink"] : null;
 
             promises.push(new Promise(function(resolve, reject) {
-                __get_discussions_by_blog(member, start_author, start_permlink, length, [], function(discussions) {
-                    resolve(discussions);
+                __get_discussions_by_blog(member, start_author, start_permlink, length, [], function(response) {
+                    resolve(response);
                 }, function(reason) {
                     reject(reason);
                 });
