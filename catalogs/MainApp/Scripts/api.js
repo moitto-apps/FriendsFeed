@@ -5,137 +5,152 @@ API = (function() {
 })();
 
 API.open_discussion = function(params, handler) {
-    API.__request_call("open_discussion", Object.assign({
+    API.__request_call("open_discussion", {
         "author":params["author"],
         "permlink":params["permlink"]
-    }, handler));
+    }, handler);
 }
 
 API.show_user = function(params, handler) {
-    API.__request_call("show_user", Object.assign({
+    API.__request_call("show_user", {
         "username":params["username"]
-    }, handler));
+    }, handler);
 }
 
 API.show_votes = function(params, handler) {
-    API.__request_call("show_votes", Object.assign({
+    API.__request_call("show_votes", {
         "author":params["author"],
         "permlink":params["permlink"]
-    }, handler));
+    }, handler);
 }
 
 API.show_replies = function(params, handler) {
-    API.__request_call("show_replies", Object.assign({
+    API.__request_call("show_replies", {
         "author":params["author"],
         "permlink":params["permlink"]
-    }, handler));
+    }, handler);
 }
 
 API.show_tag = function(params, handler) {
-    API.__request_call("show_tag", Object.assign({
+    API.__request_call("show_tag", {
         "tag":params["tag"]
-    }, handler));
+    }, handler);
 }
 
 API.vote = function(params, handler) {
-    API.__request_call("vote", Object.assign({
+    API.__request_call("vote", {
         "author":params["author"],
         "permlink":params["permlink"],
         "weight":params["weight"] || ""
-    }, handler));
+    }, handler);
 }
 
 API.reblog = function(params, handler) {
-    API.__request_call("reblog", Object.assign({
+    API.__request_call("reblog", {
         "author":params["author"],
         "permlink":params["permlink"]
-    }, handler));
+    }, handler);
 }
 
 API.comment = function(params, handler) {
-    API.__request_call("comment", Object.assign({
+    API.__request_call("comment", {
         "parent-author":params["parent-author"],
         "parent-permlink":params["parent-permlink"],
         "permlink":params["permlink"] || "",
         "body":params["body"] || ""
-    }, handler));
+    }, handler);
 }
 
 API.delete_comment = function(params, handler) {
-    API.__request_call("delete_comment", Object.assign({
+    API.__request_call("delete_comment", {
         "parent-author":params["parent-author"],
         "parent-permlink":params["parent-permlink"],
         "permlink":params["permlink"]
-    }, handler));
+    }, handler);
 }
 
 API.follow = function(params, handler) {
-    API.__request_call("follow", Object.assign({
+    API.__request_call("follow", {
         "following":params["following"]
-    }, handler));
+    }, handler);
 }
 
 API.unfollow = function(params, handler) {
-    API.__request_call("unfollow", Object.assign({
+    API.__request_call("unfollow", {
         "following":params["following"]
-    }, handler));
+    }, handler);
 }
 
 API.mute = function(params, handler) {
-    API.__request_call("mute", Object.assign({
+    API.__request_call("mute", {
         "following":params["following"]
-    }, handler));
+    }, handler);
 }
 
 API.unmute = function(params, handler) {
-    API.__request_call("unmute", Object.assign({
+    API.__request_call("unmute", {
         "following":params["following"]
-    }, handler));
+    }, handler);
 }
 
 API.transfer = function(params, handler) {
-    API.__request_call("transfer", Object.assign({
+    API.__request_call("transfer", {
         "to":params["to"], 
         "coin":params["coin"] || "SBD",
         "currency":params["currency"] || "KRW",
         "amount-type":params["amount-type"] || (params["coin"] || "SBD"),
         "amount":params["amount"] || ""
-    }, handler));
+    }, handler);
 }
 
 API.delegate = function(params, handler) {
-    API.__request_call("delegate", Object.assign({
+    API.__request_call("delegate", {
         "to":params["to"], 
         "coin":params["coin"] || "SP", 
         "amount":params["amount"] || ""
-    }, handler));
+    }, handler);
 }
 
 API.undelegate = function(params, handler) {
-    API.__request_call("undelegate", Object.assign({
+    API.__request_call("undelegate", {
         "from":params["from"],
         "coin":params["coin"] || "SP"
-    }, handler));
+    }, handler);
 }
 
 API.power_up = function(params, handler) {
-    API.__request_call("power_up", Object.assign({
+    API.__request_call("power_up", {
         "coin":params["coin"] || "STEEM", 
         "amount":params["amount"] || ""
-    }, handler));
+    }, handler);
 }
 
 API.power_down = function(params, handler) {
-    API.__request_call("power_down", Object.assign({
+    API.__request_call("power_down", {
         "coin":params["coin"] || "SP", 
         "amount":params["amount"] || ""
-    }, handler));
+    }, handler);
 }
 
 API.redeem_rewards = function(params, handler) {
-    API.__request_call("redeem_rewards", Object.assign({
+    API.__request_call("redeem_rewards", {
         /* nothing */
-    }, handler));
+    }, handler);
+}
+
+API.start_quest = function(params, handler) {
+    API.__request_call("start_quest", {
+        "author":params["author"],
+        "permlink":params["permlink"]
+    }, handler);
+}
+
+API.finish_quest = function(params, handler) {
+    API.__request_call("finish_quest", {
+        "author":params["author"],
+        "permlink":params["permlink"],
+        "comment":params["comment"]
+    }, handler);
 }
 
 API.on_complete = function(params) {
@@ -157,11 +172,13 @@ API.__request_call = function(script, params, handler) {
             "app":"__MAIN__",
             "routes-to-topmost":"no",
             "request-id":request_id,
-            "return-script":"API.on_complete",
-            "return-subview":$data["SUBVIEW"]
+            "return-script":handler ? "API.on_complete" : "",
+            "return-subview":$data["SUBVIEW"] || "__MAIN__"
         }, params));
 
-        API.__handlers[request_id] = handler;
+        if (handler) {
+            API.__handlers[request_id] = handler;
+        }
 
         return;
     }
